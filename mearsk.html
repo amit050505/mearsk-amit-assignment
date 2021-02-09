@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+    .heading-shuffle-short {
+        font-family: arial;
+    }
+#gt-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+  max-width: 800px;
+}
+.gt {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+
+  text-align: center;
+  color: white;
+}
+@media only screen and (max-width: 512px) {
+  /* For mobile phones: */
+  #gt-container {
+    display: grid;
+    /* grid-template-columns: auto; */
+    grid-template-columns: 100%;
+  }
+}
+.theme1 {
+  background-color: #72C3DC;
+}
+.theme2 {
+  background-color: #2b8ead;
+}
+.theme3 {
+  background-color: #2F454E;
+}
+.theme4 {
+  background-color: #bfbfbf;
+}
+.btn {
+  background-color: #2b8ead;
+  color: white;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 150px;
+}
+</style>
+</head>
+<body>
+
+<h1 class="heading-shuffle-short">Shuffle and sort</h1>
+<div>
+  <button onclick="shuffle()" class="btn">Shuffle</button>
+<button onclick="sort()" class="btn">Sort</button>
+</div>
+<div id="gt-container">
+  <div class="gt theme1">1</div>
+  <div class="gt theme2">2</div>
+  <div class="gt theme3">3</div>  
+  <div class="gt theme2">4</div>
+  <div class="gt theme3">5</div>
+  <div class="gt theme4">6</div>  
+  <div class="gt theme4">7</div>
+  <div class="gt theme1">8</div>
+  <div class="gt theme3">9</div>  
+
+  
+</div>
+
+
+<p>
+  Shuffle and sort by Amit
+</p>
+
+<script>
+   function shuffle() {
+      var container = document.getElementById("gt-container");
+      var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('gt'));
+        elementsArray.forEach(function(element){
+        container.removeChild(element);
+      })
+      for (var i = elementsArray.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = elementsArray[i];
+            elementsArray[i] = elementsArray[j];
+            elementsArray[j] = temp;
+        }
+      elementsArray.forEach(function(element){
+      container.appendChild(element);
+    })
+}
+
+function sort() {
+  var container = document.getElementById("gt-container");
+  var divs = Array.prototype.slice.call(container.getElementsByClassName('gt'));
+  for(let i=0; i< divs.length; i++) {
+      for(let j=i; j< divs.length; j++) {
+      if(divs[i].innerHTML > divs[j].innerHTML)
+      {
+          var temp = divs[i];
+          divs[i] = divs[j];
+          divs[j] = temp;
+      }
+    }
+  }
+  divs.forEach(function(element){
+      container.removeChild(element);
+    })
+    divs.forEach(function(element){
+    container.appendChild(element);
+  })
+}
+
+</script>
+
+</body>
+</html>
