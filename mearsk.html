@@ -19,21 +19,72 @@
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 5px;
   font-size: 30px;
+  /* border-left: solid 5px red; */
 
   text-align: center;
   color: white;
 }
+
+@media only screen and (min-width: 512px) {
+  .gt {
+    height: 150px;
+    line-height: 150px;
+  }
+}
+
 @media only screen and (max-width: 512px) {
+  .theme1 {
+  border-left: solid 10px #72C3DC !important;
+  background-color: #e6e3e3 !important;
+  color: black;
+}
+.theme2 {
+  border-left: solid 10px #2b8ead !important;
+  background-color: #e6e3e3 !important;
+  color: black;
+
+}
+.theme3 {
+  border-left: solid 10px #2F454E !important;
+  background-color: #e6e3e3 !important;
+  color: black;
+
+}
+.theme4 {
+  border-left: solid 10px  #bfbfbf !important;
+  background-color: #e6e3e3 !important;
+  color: black;
+
+}
+
+  #footer-text {
+    text-align: center;
+    font-family: arial;
+  }
   /* For mobile phones: */
   #gt-container {
     display: grid;
     /* grid-template-columns: auto; */
     grid-template-columns: 100%;
   }
+  .btn-container{
+    /* width: 80%; */
+    text-align: center;
+  }
   .btn {
-    min-width: 100%;
+    min-width: 40%;
+    display: inline;
     padding: 10px !important;
     margin-bottom: 10px !important;
+  }
+  .heading-shuffle-short {
+    color: white;
+    background-color: rgb(58, 56, 56);
+    padding: 10px;
+    text-align: center;
+  }
+  .gt {
+    border: solid 2px white;
   }
 }
 .theme1 {
@@ -63,9 +114,9 @@
 <body>
 
 <h1 class="heading-shuffle-short">Shuffle and sort</h1>
-<div>
+<div class="btn-container">
   <button onclick="shuffle()" class="btn">Shuffle</button>
-<button onclick="sort()" class="btn">Sort</button>
+  <button onclick="sort()" class="btn">Sort</button>
 </div>
 <div id="gt-container">
   <div class="gt theme1">1</div>
@@ -82,7 +133,7 @@
 </div>
 
 
-<p>
+<p id="footer-text">
   Shuffle and sort by Amit
 </p>
 
